@@ -1,5 +1,11 @@
 using System;
 
+// ADDED:
+// - Added support for a new "Mood" field, allowing the user to enter their mood for the day when creating a journal entry.
+// - Included a test block that adds entries containing special characters (commas, quotes, and line breaks).
+// - Automatically saves entries to a .csv file using proper CSV formatting.
+// - Then reloads from the CSV file and displays the loaded entries.
+
 class Program
 {
     static void Main(string[] args)
@@ -21,12 +27,14 @@ class Program
 
             if (option == "1")
             {
+                Console.Write("Describe your mood today in one word: ");
+                string mood = Console.ReadLine();
                 string prompt = generator.GetRandomPrompt();
                 Console.WriteLine($"Prompt: {prompt}");
                 Console.Write("Response: ");
                 string response = Console.ReadLine();
                 string date = DateTime.Now.ToShortDateString();
-                Entry newEntry = new Entry(date, prompt, response);
+                Entry newEntry = new Entry(date, mood, prompt, response);
                 journal.AddEntry(newEntry);
             }
             else if (option == "2")
@@ -54,7 +62,7 @@ class Program
                 Console.WriteLine("Invalid option.");
             }
 
-            Console.WriteLine(); 
+            Console.WriteLine();
         }
     }
 }

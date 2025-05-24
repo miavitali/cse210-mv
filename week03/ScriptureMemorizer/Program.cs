@@ -1,4 +1,6 @@
 using System;
+// Modified the program to work with a library of scriptures instead of a single one.
+// The program now randomly selects a scripture from the library to present to the user.
 
 class Program
 {
@@ -19,7 +21,7 @@ class Program
         Console.WriteLine(selectedScripture.GetDisplayText());
         Console.WriteLine("Press enter to continue or type 'quit' to finish:");
 
-         while (!selectedScripture.IsCompletelyHidden())
+        while (!selectedScripture.IsCompletelyHidden())
         {
             string input = Console.ReadLine();
 

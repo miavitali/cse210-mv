@@ -1,3 +1,6 @@
+// I added a breathing animation where dots grow quickly at first and then slow down while the user inhales, 
+// and shrink the same way while the user exhales.
+
 using System;
 
 class Program
